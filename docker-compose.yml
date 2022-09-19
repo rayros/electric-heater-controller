@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: house_climate_controller
+      POSTGRES_PASSWORD: house_climate_controller_password
+      POSTGRES_DB: house_climate_controller
+
+  house-climate-controller:
+    image: house-climate-controller
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: always
+    depends_on:
+      - db
+    env_file:
+      - .env
+    environment:
+      - DB_HOST=db
+      - DB_USER=house_climate_controller
+      - DB_PASSWORD=house_climate_controller_password
+      - DB_NAME=house_climate_controller
+      - DB_PORT=5432

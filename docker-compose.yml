@@ -5,9 +5,9 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_USER: house_climate_controller
-      POSTGRES_PASSWORD: house_climate_controller_password
-      POSTGRES_DB: house_climate_controller
+      POSTGRES_USER: electric_heater_controller
+      POSTGRES_PASSWORD: electric_heater_controller_password
+      POSTGRES_DB: electric_heater_controller
 
   electric-heater-controller:
     image: electric-heater-controller
@@ -21,7 +21,7 @@ services:
       - .env
     environment:
       - DB_HOST=db
-      - DB_USER=house_climate_controller
-      - DB_PASSWORD=house_climate_controller_password
-      - DB_NAME=house_climate_controller
+      - DB_USER=electric_heater_controller
+      - DB_PASSWORD=electric_heater_controller_password
+      - DB_NAME=electric_heater_controller
       - DB_PORT=5432

@@ -9,8 +9,8 @@ services:
       POSTGRES_PASSWORD: house_climate_controller_password
       POSTGRES_DB: house_climate_controller
 
-  house-climate-controller:
-    image: house-climate-controller
+  electric-heater-controller:
+    image: electric-heater-controller
     build:
       context: .
       dockerfile: ./Dockerfile

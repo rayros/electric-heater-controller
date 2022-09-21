@@ -18,5 +18,5 @@ export const listenTemperatureConfig = async (client: AsyncMqttClient) => {
       await client.publish(process.env.MQTT_TEMPERATURE_CONFIG_SUBSCRIBE, JSON.stringify(config));
     }
   });
-  await client.subscribe([process.env.MQTT_TEMPERATURE_CONFIG_PUBLISH, process.env.MQTT_TEMPERATURE_CONFIG_SUBSCRIBE]);
+  await client.subscribe(process.env.MQTT_TEMPERATURE_CONFIG_PUBLISH);
 }

@@ -10,7 +10,7 @@ services:
       POSTGRES_DB: electric_heater_controller
 
   electric-heater-controller:
-    image: electric-heater-controller
+    image: docker-registry.nolife.cyou/electric-heater-controller
     build:
       context: .
       dockerfile: ./Dockerfile

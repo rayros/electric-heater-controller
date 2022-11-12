@@ -1,4 +1,4 @@
-FROM node
+FROM node:alpine AS builder
 
 WORKDIR /app
 
@@ -11,6 +11,9 @@ COPY . .
 
 RUN npm run build
 
-RUN rm -rf src package-lock.json tsconfig.json
+FROM node:alpine
 
-CMD [ "npm", "start" ]
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/build ./build
+
+CMD [ "node", "build/index.js" ]
